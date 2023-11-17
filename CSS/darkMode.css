@@ -1,0 +1,31 @@
+:root:has(.mode-command input:checked) {
+  --defaultTextColor: #fff;
+  --lightTextColor: #f4f4f4;
+  --lightTextColor2: #fff;
+  --lightTextColor3: #7f7f90;
+  --mainColor: #9c681f;
+  --hoveringColor: #a67735;
+  --hoveringColor2: #fff;
+  --containerBackground: #252525;
+  --containerBackground2: #171717;
+  --discriptionBackground: #161616;
+  --cardBackground: #0d0d0d;
+
+  --navBarColor: #171717;
+  --btnBGColor: #171717;
+  --shadowColor2: #333;
+}
+
+body:has(.mode-command input:checked) .mode-command .light {
+  display: block;
+}
+
+body:has(.mode-command input:checked) .mode-command .dark {
+  display: none;
+}
+
+body:has(.mode-command input:checked) {
+  .chef-one figure::before {
+    background-image: url(../img/team-shape-dark.svg);
+  }
+}

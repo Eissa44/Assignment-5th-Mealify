@@ -1,0 +1,906 @@
+/* START OF GENERAL STYLE */
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--containerBackground2);
+}
+
+html {
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: #d84141;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a,
+span {
+  display: inline-block;
+}
+
+ul {
+  list-style-type: none;
+}
+
+img {
+  display: block;
+}
+
+.btn {
+  border: none;
+  background-color: transparent;
+  color: #fff;
+}
+
+:root {
+  /* Color */
+  --defaultTextColor: #212529;
+  --lightTextColor: #37373f;
+  --lightTextColor2: #4f4f5a;
+  --lightTextColor3: #7f7f90;
+  --mainColor: #ce1212;
+  --hoveringColor: #e61414;
+  --hoveringColor2: #000;
+  --navBarColor: #fff;
+  --widthOfSections: 85%;
+  --containerBackground: #eeeeee;
+  --containerBackground2: #fff;
+  --discriptionBackground: #fff;
+
+  --btnBGColor: #fff;
+
+  --cardBackground: #f5f5f5;
+  --shadowColor: #33333373;
+  --shadowColor2: #999;
+  --baShadow: #fff5;
+  --primaryHue: 0;
+  --primarySaturation: 84%;
+  --primaryLightness: 44%;
+  --colorPrimary: hsl(
+    var(--primaryHue),
+    var(--primarySaturation),
+    var(--primaryLightness)
+  );
+  --lightHue: 0;
+  --lightSaturation: 84%;
+  --lightLightness: 44%;
+  --colorLight: hsl(var(--lightHue), var(--lightSaturation), var(--colorLight));
+}
+
+/* END OF GENERAL STYLE */
+
+/* START OF NAVBAR */
+
+nav {
+  background-color: var(--navBarColor);
+  box-shadow: 0px 10px 12px 1px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+
+body:has(.nav-links:target) nav {
+  height: 100vh;
+  background-color: var(--baShadow);
+}
+
+nav .container .nav-links:target {
+  transform: translateX(0);
+}
+
+nav .container {
+  width: var(--widthOfSections);
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 9rem;
+}
+
+nav h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: var(--defaultTextColor);
+}
+
+nav h1::after {
+  content: ".";
+  color: var(--mainColor);
+}
+
+nav .container .nav-links {
+  display: flex;
+  width: 30%;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  height: 100%;
+  transition: all 0.5s;
+}
+
+nav .nav-links a {
+  color: var(--lightTextColor3);
+  font-size: 1.7rem;
+  font-weight: 600;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  padding: 10px 0;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.6s;
+}
+
+.nav-links a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background-color: var(--mainColor);
+  transition: all 0.6s;
+}
+
+.nav-links a:hover::before {
+  width: 100%;
+}
+.nav-links a:hover {
+  color: var(--hoveringColor2);
+}
+
+.mode-command i {
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.mode-command .light {
+  display: none;
+  color: var(--defaultTextColor);
+}
+
+.mode-command .light {
+  display: none;
+  color: var(--defaultTextColor);
+}
+
+body:has(.home:target) .home,
+body:has(.chefs:target) .chefs,
+body:has(.gallery:target) .gallery,
+body:has(.contact-section:target) .contact-section {
+  color: var(--hoveringColor2) !important;
+}
+
+body:has(.home:target) .home::before,
+body:has(.chefs:target) .chefs::before,
+body:has(.gallery:target) .gallery::before,
+body:has(.contact-section:target) .contact-section::before {
+  width: 100% !important;
+}
+
+.menu-icon {
+  font-size: 3rem;
+  display: none;
+  color: var(--defaultTextColor);
+}
+
+nav .nav-links .close {
+  display: none;
+  align-self: flex-end;
+  padding: 2rem;
+}
+
+nav .nav-links .close a {
+  font-size: 3rem;
+}
+/* END OF NAVBAR */
+
+/* START OF HEADER */
+#home {
+  background-color: var(--containerBackground);
+  padding: 5rem 0;
+  margin-bottom: 2rem;
+}
+#home .main-div {
+  width: var(--widthOfSections);
+  margin: auto;
+  padding-block: 8rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#home .main-div > * {
+  width: 40%;
+}
+
+#home .main-div .header-image img {
+  width: 100%;
+  filter: drop-shadow(0 0 3rem var(--shadowColor));
+}
+
+#home .header-image:hover img {
+  animation: image 0.6s infinite;
+}
+
+@keyframes image {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+#home .header-text h2 {
+  font-size: 6.5rem;
+  font-family: "Amatic SC", sans-serif;
+  font-weight: 700;
+  color: var(--lightTextColor);
+}
+
+#home .header-text p {
+  font-size: 1.6rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  color: var(--lightTextColor2);
+  line-height: 2.6rem;
+  margin-block: 2rem;
+}
+
+#home .header-btn {
+  display: flex;
+  gap: 2rem;
+}
+
+#home .btn-one {
+  background-color: var(--mainColor);
+  font-size: 1.6rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  border-radius: 0 2rem 2rem;
+  padding: 1rem 2rem;
+  transition: all 0.7s;
+  align-self: center;
+}
+
+#home .btn-one:hover {
+  background-color: var(--hoveringColor);
+}
+
+#home .btn-two {
+  font-size: 1.6rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 600;
+  color: var(--lightTextColor);
+  transition: all 0.7s;
+  display: flex;
+  align-items: center;
+}
+
+#home .btn-two .icon {
+  width: 5rem;
+  height: 5rem;
+  background-image: linear-gradient(
+    to right,
+    var(--mainColor) 0% 50%,
+    transparent 50% 100%
+  );
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#home .btn-two .icon i {
+  z-index: 9;
+}
+
+#home .btn-two .icon::before {
+  content: "";
+  position: absolute;
+  width: 4rem;
+  height: 4rem;
+  background-color: var(--btnBGColor);
+  border-radius: inherit;
+}
+
+#home .btn-two:hover {
+  color: var(--hoveringColor);
+}
+
+/* END OF HEADER */
+
+/* START OF SECTION CHEFS */
+/* start of head-text  */
+#chefs {
+  margin: 2rem 3rem;
+  background-color: var(--containerBackground2);
+  padding-block: 8rem;
+}
+
+#chefs .container-one,
+#chefs .head-chef {
+  width: var(--widthOfSections);
+  margin: 3rem auto;
+  text-align: center;
+}
+
+.head-chef h2 {
+  font-size: 1.4rem;
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  color: var(--lightTextColor3);
+}
+
+.head-chef p {
+  font-size: 5rem;
+  font-family: "Amatic SC", sans-serif;
+  font-weight: 400;
+  color: var(--lightTextColor2);
+}
+
+.head-chef p span {
+  color: var(--mainColor);
+}
+/* end of head-text  */
+
+/* start of container one */
+#chefs .container-one {
+  display: flex;
+  gap: 3rem;
+}
+
+.container-one .chef-one {
+  width: calc(100% / 3);
+  box-shadow: 0.2px 0.2px 6px var(--shadowColor2);
+  transition: all 0.5s;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.chef-one figure {
+  position: relative;
+}
+
+.chef-one figure::before {
+  content: "";
+  background-image: url(../img/team-shape.svg);
+  position: absolute;
+  background-size: cover;
+  background-repeat: repeat;
+  width: 100%;
+  height: 7rem;
+  left: 0;
+  bottom: -1px;
+}
+
+.chef-one figure img {
+  width: 100%;
+}
+
+.chef-one:hover {
+  transform: scale(1.06, 1.05);
+}
+
+figure .chef-list ul {
+  background-color: rgba(222, 222, 222, 0.301);
+  border-radius: 1rem;
+  list-style: none;
+  position: absolute;
+  width: 6rem;
+  top: 5rem;
+  right: -6.5rem;
+  transition: all 0.5s 0.4s;
+}
+
+.chef-one:hover .chef-list ul {
+  right: 1rem;
+}
+
+.chef-list ion-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.5rem;
+  color: #444;
+  opacity: 0.3;
+  margin: 0.4rem;
+}
+
+.chef-list ion-icon:hover {
+  opacity: 1;
+}
+
+.chef-description {
+  background-color: var(--discriptionBackground);
+  padding: 1 5;
+}
+
+.chef-description h3 {
+  font-size: 1.9rem;
+  font-family: Inter, sans-serif;
+  font-weight: 700;
+  color: var(--defaultTextColor);
+  padding-bottom: 0.5rem;
+}
+
+.chef-description span,
+.chef-description p {
+  font-size: 1.5rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  color: var(--lightTextColor2);
+  padding: 0.5rem 0;
+}
+
+/* end of container one */
+/* END OF SECTION CHEFS */
+
+/* START OF SECTION GALLERY */
+.gallery-section {
+  background-color: var(--containerBackground);
+  margin: 3rem AUTO;
+  padding-block: 5rem;
+}
+
+.gallery-section .container-tow {
+  width: var(--widthOfSections);
+  margin: auto;
+  padding: 6rem 0;
+}
+
+.container-tow h2 {
+  font-size: 1.4rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  color: var(--lightTextColor3);
+}
+
+.container-tow p {
+  font-size: 5rem;
+  font-family: "Amatic SC", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  color: var(--defaultTextColor);
+}
+
+.container-tow .head-gallery p::after {
+  content: " Our Gallery";
+  color: var(--mainColor);
+}
+
+.photos {
+  --gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: var(--gap);
+  height: 105rem;
+  margin: 3rem 3rem 0;
+}
+
+.photos picture {
+  width: calc(calc(100% - var(--gap) * 2) / 3);
+  position: relative;
+  border: 0.4rem #fff solid;
+  overflow: hidden;
+}
+
+.photos img {
+  width: 100%;
+  transition: all 0.6s;
+}
+
+.gallery-section .shadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  background-color: rgba(84, 84, 84, 0.623);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 110%;
+  transition: all 1s;
+}
+
+.shadow h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  font-family: "Inter", sans-serif;
+  color: #fff;
+  margin: 2rem;
+}
+.shadow p {
+  font-size: 1.6rem;
+  font-weight: 400;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: #ddd;
+}
+.photos .child:hover .shadow {
+  top: 0;
+}
+
+.photos .child:hover .child-photo {
+  transform: scale(1.2, 1.2);
+}
+
+/* END OF SECTION GALLERY */
+
+/* START OF SECTION CONTACT */
+.contact-section {
+  padding-block: 11rem;
+}
+
+.contect-container {
+  width: var(--widthOfSections);
+  margin: auto;
+}
+
+.contect-container .head-gallery h2 {
+  font-size: 1.4rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  color: var(--lightTextColor3);
+}
+.contect-container .head-gallery p {
+  font-size: 5rem;
+  font-family: "Amatic SC", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  color: var(--defaultTextColor);
+  padding: 2rem;
+}
+
+.head-gallery p span {
+  color: var(--mainColor);
+}
+
+.map iframe {
+  width: 100%;
+  margin: auto;
+  height: 35rem;
+  padding: 1rem;
+}
+
+.contact-section .contact-details {
+  --gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+}
+
+.contact-section .contact-details > div {
+  width: calc(calc(100% - var(--gap)) / 2);
+  margin: auto;
+  background-color: var(--cardBackground);
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-block: 1.5rem;
+}
+
+.contact-section .contact-details i {
+  width: 6rem;
+  height: 6rem;
+  flex-shrink: 0;
+  background-color: var(--mainColor);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  color: var(--navBarColor);
+}
+
+.contact-details .text-details h3 {
+  font-size: 2rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  color: var(--lightTextColor3);
+  padding: 1rem;
+}
+.contact-details .text-details h3 + * {
+  font-size: 1.5rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  color: var(--defaultTextColor);
+  padding: 0 0 1rem 1rem;
+  text-decoration: none;
+}
+
+.contact-section .input-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: var(--containerBackground2);
+  box-shadow: 0 0 1rem var(--shadowColor);
+  padding: 2rem;
+}
+
+.contact-section .input-form > *:not(button) {
+  width: 100%;
+}
+
+.contact-section .input-group {
+  --gap: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+}
+
+.contact-section .input-group input {
+  width: calc(calc(100% - var(--gap)) / 2);
+}
+
+.contact-section .focus {
+  padding: 1.5rem;
+  border: 0.2rem #999 solid;
+  border-radius: 1rem;
+  outline: none;
+}
+
+.focus:focus {
+  border: 0.2rem var(--mainColor) solid;
+}
+
+.input-form button {
+  background-color: var(--mainColor);
+  border: none;
+  padding: 2rem 4rem;
+  margin-top: 1.5rem;
+  border-radius: 5rem;
+  cursor: pointer;
+  transition: all 1s;
+  color: var(--btnBGColor);
+  font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.input-form button:hover {
+  background-color: var(--hoveringColor);
+}
+
+/* END OF SECTION CONTACT */
+
+/* START OF FOOTER  */
+footer {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.308), rgba(0, 0, 0, 0.418)),
+    url(../img/textured-metal-background.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  padding-block: 3rem;
+}
+
+footer .container {
+  width: var(--widthOfSections);
+  --gap: 1.5rem;
+  margin: auto;
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+}
+
+.container :is(.footer-one, .footer-three) {
+  width: calc(calc(100% - var(--gap) * 2) / 4);
+}
+
+.container :is(.footer-two) {
+  width: calc(calc(100% - var(--gap) * 2) / 2);
+}
+
+footer .footer-one > div {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.container .footer-one img {
+  width: 20%;
+}
+
+.container .footer-one h2 {
+  width: 30%;
+  font-size: 3rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+}
+
+.container .footer-one h2::after {
+  content: ".";
+  color: var(--mainColor);
+}
+
+.container .footer-one p {
+  width: 100%;
+  font-size: 1.6rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-block: 1rem;
+}
+
+.container .footer-one h3 {
+  font-size: 2rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  padding-block: 1rem;
+  border-bottom: 1px solid #888;
+  margin-block: 2rem;
+  text-align: center;
+}
+
+footer .footer-icons {
+  display: flex;
+  justify-content: space-around;
+  padding-block: 1rem;
+}
+
+footer .footer-icons li {
+  font-size: 3rem;
+}
+/* footer tow */
+.container .footer-two {
+  display: flex;
+  flex-direction: column;
+  padding-block: 1.5rem;
+  gap: 1.5rem;
+}
+
+.container .footer-two h3 {
+  font-size: 2rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+}
+
+.container .footer-two p {
+  font-size: 1.8rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 400;
+}
+
+.footer-two .footer-input {
+  display: flex;
+  --gap: 1rem;
+  gap: var(--gap);
+}
+
+.footer-two .footer-input input {
+  flex-grow: 1;
+  padding: 1rem;
+}
+
+.footer-two .footer-input input:focus {
+  outline: none;
+}
+
+.footer-two .footer-input button {
+  min-width: 11rem;
+  background-color: var(--mainColor);
+  border: none;
+  color: var(--btnBGColor);
+  font-size: 1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer-two .footer-input button:hover {
+  background-color: var(--hoveringColor);
+}
+
+.footer-two .quick ul {
+  --gap: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  padding-block: 1rem;
+}
+
+.footer-two .quick ul li {
+  width: calc(calc(100% - var(--gap)) / 2);
+  padding-block: 1rem;
+  font-size: 1.5rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  transition: all 1s;
+}
+
+.footer-two .quick ul li i {
+  padding-right: 1rem;
+}
+
+.container .footer-two ul li:hover {
+  transform: translateX(2rem);
+  background-color: #99999980;
+}
+
+/* footer three */
+.container .footer-three {
+  padding-block: 1.5rem;
+}
+
+.container .footer-three h3 {
+  font-size: 2rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+}
+
+.container .footer-three ul li {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding-block: 1rem;
+  font-size: 1.5rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 400;
+}
+
+.container .footer-three ul li i {
+  width: 4rem;
+  height: 4rem;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: var(--mainColor);
+}
